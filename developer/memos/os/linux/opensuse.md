@@ -10,16 +10,16 @@ docker pull opensuse/leap:latest
 
 # os maint
 ```
-zypper refresh
-#zypper update
-zypper dup
+zypper --non-interactive refresh
+#zypper --non-interactive update
+zypper --non-interactive dup
 ```
 
 # software install
 ## develop environment
 ```
-zypper install -t pattern devel_basis gcc-c++
-zypper install gcc-c++
+zypper --non-interactive install -t pattern devel_basis
+zypper --non-interactive install gcc-c++
 ```
 
 # softwre

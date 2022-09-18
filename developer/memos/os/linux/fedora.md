@@ -4,21 +4,21 @@
 
 ## docker
 ```
-docker pull ubuntu:latest
+docker pull fedora:latest
 ```
 
 
 # os maint
 ```
-apt-get -y update
-apt-get -y upgrade
-apt-get -y dist-upgrade
+dnf -y check-update
+dnf -y upgrade
 ```
 
 # software install
 ## develop environment
 ```
-apt-get -y install build-essential
+dnf -y groupinstall 'Development Tools'
+dnf -y install perl
 ```
 
 # softwre
