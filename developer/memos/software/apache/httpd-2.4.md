@@ -4,25 +4,45 @@
 cd /usr/local/src/
 ```
 
+### ubuntu
 ```
-# download source
+apt-get -y install wget
+#apt-get -y install libcurl4-openssl-dev libjansson-dev libldap2-dev liblua5.4-dev libnghttp2-dev libxml2-dev
+```
 
-apt-get install -y unzip wget
-apt-get install -y libldap2-dev
+### fedora
+```
+dnf -y install wget
+#dnf -y install libcurl-devel jansson-devel openldap-devel lua-devel libnghttp2-devel libxml2-devel
+```
 
+### opensuse
+```
 zypper --non-interactive install wget gzip
-zypper --non-interactive install openldap2-devel file
+#zypper --non-interactive install libcurl-devel libjansson-devel openldap2-devel lua-devel libnghttp2-devel libxml2-devel
+```
 
+### download source
+```
 wget https://www.zlib.net/zlib-1.2.12.tar.gz
 wget https://github.com/libexpat/libexpat/releases/download/R_2_4_8/expat-2.4.8.tar.gz
 wget https://www.openssl.org/source/openssl-1.1.1q.tar.gz
 
 wget https://dist.apache.org/repos/dist/release/apr/apr-1.7.0.tar.gz
 wget https://dist.apache.org/repos/dist/release/apr/apr-util-1.6.1.tar.gz
-wget --content-disposition https://sourceforge.net/projects/pcre/files/pcre/8.45/pcre-8.45.tar.gz/download
+wget https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.40/pcre2-10.40.tar.gz
 
 wget https://dist.apache.org/repos/dist/release/httpd/httpd-2.4.54.tar.gz
+```
 
+```
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+export LD_RUN_PATH=/usr/local/lib:$LD_RUN_PATH
+
+#echo "# default configuration" >  /etc/ld.so.conf.d/usr-local.conf
+#echo "/usr/local/lib"          >> /etc/ld.so.conf.d/usr-local.conf
+#echo "/usr/local/lib64"        >> /etc/ld.so.conf.d/usr-local.conf
+#ldconfig
 ```
 
 ```
@@ -79,8 +99,8 @@ cd ..
 ```
 
 ```
-tar zxvf pcre-8.45.tar.gz
-cd pcre-8.45
+tar zxvf pcre2-10.40.tar.gz
+cd pcre2-10.40
 ./configure
 make
 make install
