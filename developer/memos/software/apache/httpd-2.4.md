@@ -24,13 +24,13 @@ zypper --non-interactive install wget gzip
 
 ### download source
 ```
-wget https://www.zlib.net/zlib-1.2.12.tar.gz
-wget https://github.com/libexpat/libexpat/releases/download/R_2_4_8/expat-2.4.8.tar.gz
-wget https://www.openssl.org/source/openssl-1.1.1q.tar.gz
+wget https://www.zlib.net/zlib-1.2.13.tar.gz
+wget https://github.com/libexpat/libexpat/releases/download/R_2_5_0/expat-2.5.0.tar.gz
+wget https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.6.1.tar.gz
 
 wget https://dist.apache.org/repos/dist/release/apr/apr-1.7.0.tar.gz
 wget https://dist.apache.org/repos/dist/release/apr/apr-util-1.6.1.tar.gz
-wget https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.40/pcre2-10.40.tar.gz
+wget https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.39/pcre2-10.39.tar.gz
 
 wget https://dist.apache.org/repos/dist/release/httpd/httpd-2.4.54.tar.gz
 ```
@@ -46,8 +46,8 @@ export LD_RUN_PATH=/usr/local/lib:$LD_RUN_PATH
 ```
 
 ```
-tar zxvf zlib-1.2.12.tar.gz
-cd zlib-1.2.12
+tar zxvf zlib-1.2.13.tar.gz
+cd zlib-1.2.13
 ./configure --shared
 make
 make install
@@ -55,8 +55,8 @@ cd ..
 ```
 
 ```
-tar zxvf expat-2.4.8.tar.gz
-cd expat-2.4.8
+tar zxvf expat-2.5.0.tar.gz
+cd expat-2.5.0
 ./configure --without-xmlwf                 \
             --without-examples              \
             --without-tests
@@ -66,11 +66,9 @@ cd ..
 ```
 
 ```
-tar zxvf openssl-1.1.1q.tar.gz
-cd openssl-1.1.1q
-./config    --with-zlib-include=/usr/local  \
-            --with-zlib-lib=/usr/local      \
-            shared zlib-dynamic
+tar zxvf libressl-3.6.1.tar.gz
+cd libressl-3.6.1
+./configure
 make
 make install
 cd ..
@@ -99,8 +97,8 @@ cd ..
 ```
 
 ```
-tar zxvf pcre2-10.40.tar.gz
-cd pcre2-10.40
+tar zxvf pcre2-10.39.tar.gz
+cd pcre2-10.39
 ./configure
 make
 make install
@@ -112,7 +110,7 @@ tar zxvf httpd-2.4.54.tar.gz
 cd httpd-2.4.54
 ./configure --with-apr=/usr/local/apr                           \
             --with-apr-util=/usr/local/apr                      \
-            --with-ssl=/usr/local/ssl                           \
+            --with-ssl=/usr/local                               \
             --enable-so                                         \
             --enable-module=so                                  \
             --with-z=/usr/local                                 \
