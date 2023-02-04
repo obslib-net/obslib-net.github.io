@@ -1,13 +1,13 @@
 
-FROM ubuntu:bionic AS build
+FROM ubuntu:bionic
+
+RUN set -eux                                                                 \ 
+ && apt-get update                                                           \ 
+ && apt install -y samba                                                     \ 
+ && apt-get -y clean                                                         \ 
+ && rm -rf /var/lib/apt/lists/*
 
 COPY smb.conf /etc/samba/smb.conf
-
-RUN set -eux;                                                                \ 
-    apt-get update;                                                          \ 
-    apt install -y samba                                                     \ 
-    apt-get -y clean;                                                        \ 
-    rm -rf /var/lib/apt/lists/*
 
 EXPOSE 137 138 139 445
 
