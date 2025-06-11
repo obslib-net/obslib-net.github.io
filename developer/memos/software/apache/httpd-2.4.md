@@ -24,8 +24,8 @@ zypper --non-interactive install wget gzip
 
 ### download source
 ```
-wget https://www.zlib.net/zlib-1.2.13.tar.gz
-wget https://github.com/libexpat/libexpat/releases/download/R_2_5_0/expat-2.5.0.tar.gz
+wget -q https://www.zlib.net/zlib-1.2.13.tar.gz
+wget -q https://github.com/libexpat/libexpat/releases/download/R_2_5_0/expat-2.5.0.tar.gz
 wget https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.6.1.tar.gz
 
 wget https://dist.apache.org/repos/dist/release/apr/apr-1.7.0.tar.gz
